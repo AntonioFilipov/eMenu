@@ -1,0 +1,22 @@
+{
+  "name": "project",
+  "version": "0.0.0",
+  "homepage": "https://github.com/AntonioFilipov/HackBulgaria-Frontend-JavaScript",
+  "authors": [
+    "Antonio FIlipov <tonkatafilipov@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "jade": "~1.9.2",
+    "q": "1.x"
+  }
+}

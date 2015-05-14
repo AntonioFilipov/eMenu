@@ -1,0 +1,22 @@
+/*div.container{
+    margin-left:0px;
+    margin-right:0px;
+}*/
+
+/*background-color: green;
+}
+
+div#navItem{
+    background-color: red;
+}
+
+div#navProduct{
+    background-color: yellow;
+}
+*/
+
+.thumbnail img{
+    width:100px;
+    margin-left:0px;
+    margin-right:0px;
+}

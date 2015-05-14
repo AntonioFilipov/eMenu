@@ -1,0 +1,50 @@
+extends layout
+
+block content
+    div.row#mainCarousel
+        div#myCarousel.carousel.slide(data-ride="carousel").col-xs-12
+            // Indicators
+            ol.carousel-indicators
+                li.active(data-target="#myCarousel", data-slide-to="0")
+                li(data-target="#myCarousel", data-slide-to="1")
+                li(data-target="#myCarousel", data-slide-to="2")
+                li(data-target="#myCarousel", data-slide-to="3")
+            //Wrapper for slides
+            div.carousel-inner(role="listbox")
+                div.item.active
+                    a(href="product")
+                        img(src="img/hotMeal.jpg", alt="Chania")
+                    div.carousel-caption
+                        h3 Равиоли по италиански с телешко
+                        p Почуствайте неустоимият аромат на Италия
+                div.item
+                    a(href="product")
+                        img(src="img/hotMeal.jpg", alt="Chania")
+                    div.carousel-caption
+                        h3 Равиоли по италиански с телешко
+                        p Почуствайте неустоимият аромат на Италия
+                div.item
+                    a(href="product")
+                        img(src="img/hotMeal.jpg", alt="Flower")
+                    div.carousel-caption
+                        h3 Равиоли по италиански с телешко
+                        p Почуствайте неустоимият аромат на Италия
+                div.item
+                    a(href="product")
+                        img(src="img/hotMeal.jpg", alt="Flower")
+                    div.carousel-caption
+                        h3 Равиоли по италиански с телешко
+                        p Почуствайте неустоимият аромат на Италия
+            // Left and right controls
+            a.left.carousel-control(href="#myCarousel", role="button", data-slide="prev")
+                span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+                span.sr-only Previous
+            a.right.carousel-control(href="#myCarousel", role="button", data-slide="next")
+                span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+                span.sr-only Next
+    //- div.col-xs-6
+    //-     img.img-responsive(src="img/brain.jpg")
+    //- div.col-xs-6
+    //-     h1 Влиянието на Hack Bulgaria върху мозъка ни
+    //-     h3 Колкото повече, толкова повече!
+    //-     p Мозъкът е изумителна машина, за която продължаваме да не знаем почти нищо. Паметта представлява още по-голяма загадка и от самия мозък. Може да забравите в колко часа имате важна среща днес, но все още си спомняте ябълковия сладкиш, който баба ви е направила, когато сте били на шест години.

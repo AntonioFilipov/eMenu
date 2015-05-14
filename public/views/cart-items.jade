@@ -1,0 +1,8 @@
+//-front-end jade (template engine)
+each item in cart.items
+    tr
+        td= item.name
+        td= item.price
+        td
+            a.btn.btn-danger.action-delete(data-id=item.id)
+                span.glyphicon.glyphicon-remove

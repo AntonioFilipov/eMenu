@@ -1,0 +1,87 @@
+extends layout
+
+block content
+    div.row
+        div#myCarousel.productCarousel.carousel.slide(data-ride="carousel").col-xs-12
+            // Indicators
+            ol.carousel-indicators
+                li.active(data-target="#myCarousel", data-slide-to="0")
+                li(data-target="#myCarousel", data-slide-to="1")
+                li(data-target="#myCarousel", data-slide-to="2")
+                li(data-target="#myCarousel", data-slide-to="3")
+            //Wrapper for slides
+            div.carousel-inner(role="listbox")
+                div.item.active
+                    div.row#menuRow
+                        div.col-xs-12
+                            .thumbnail(onclick="window.location = 'product';")
+                                img(src="img/hotMeal.jpg", alt="...")
+                                .caption
+                                    h4.orderText Равиоли по италиански с телешко
+                                    p Цена:
+                                        span.orderPrice 18лв
+                                        //- a.btn.btn-success.btn-add(href="#", role="button") Добави
+                                        a.btn.btn-primary(href="product", role="button") Прегледай
+
+                        
+                div.item
+                    div.row#menuRow
+                        div.col-xs-12
+                            .thumbnail(onclick="window.location = 'product';")
+                                img(src="img/hotMeal.jpg", alt="...")
+                                .caption
+                                    h4.orderText Равиоли по италиански с телешко
+                                    p Цена:
+                                        span.orderPrice 18лв
+                                        //- a.btn.btn-success.btn-add(href="#", role="button") Добави
+                                        a.btn.btn-primary(href="product", role="button") Прегледай
+
+
+                div.item
+                    div.row#menuRow
+                        div.col-xs-12
+                            .thumbnail(onclick="window.location = 'product';")
+                                img(src="img/hotMeal.jpg", alt="...")
+                                .caption
+                                    h4.orderText Равиоли по италиански с телешко
+                                    p Цена:
+                                        span.orderPrice 18лв
+                                        //- a.btn.btn-success.btn-add(href="#", role="button") Добави
+                                        a.btn.btn-primary(href="product", role="button") Прегледай
+
+
+                div.item
+                    div.row#menuRow
+                        div.col-xs-12
+                            .thumbnail(onclick="window.location = 'product';")
+                                img(src="img/hotMeal.jpg", alt="...")
+                                .caption
+                                    h4.orderText Равиоли по италиански с телешко
+                                    p Цена: 
+                                        span.orderPrice 18лв
+                                        //- a.btn.btn-success.btn-add(href="#", role="button") Добави
+                                        a.btn.btn-primary(href="product", role="button") Прегледай
+
+
+                //- div.item
+                //-     img(src="img/hotMeal.jpg", alt="Chania")
+                //-     div.carousel-caption
+                //-         h3 Равиоли по италиански с телешко
+                //-         p Почуствайте неустоимият аромат на Италия
+                //- div.item
+                //-     img(src="img/hotMeal.jpg", alt="Flower")
+                //-     div.carousel-caption
+                //-         h3 Равиоли по италиански с телешко
+                //-         p Почуствайте неустоимият аромат на Италия
+                //- div.item
+                //-     img(src="img/hotMeal.jpg", alt="Flower")
+                //-     div.carousel-caption
+                //-         h3 Равиоли по италиански с телешко
+                //-         p Почуствайте неустоимият аромат на Италия
+            // Left and right controls
+            a.left.carousel-control(href="#myCarousel", role="button", data-slide="prev")
+                span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+                span.sr-only Previous
+            a.right.carousel-control(href="#myCarousel", role="button", data-slide="next")
+                span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+                span.sr-only Next

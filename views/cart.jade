@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    div.table-responsive
+        table.table.table-hover#cartItems
+            thead
+                tr
+                    th.name Артикул
+                    th.price Цена
+                    th.menu
+            tfoot
+                tr
+                    td Общо
+                    td 36.00лв.
+                    td
+                        button.btn.btn-success.send Поръчай
+            tbody
+            //- empty container which is going to be filled by displayCart() in app.js
+
+block scripts
+    script.
+        $(document).ready(function(){
+            //init stuff
+            console.log("initing cart");
+            OrderApp.displayCart();
+            $("#cartItems").on("click", ".action-delete", function(){
+                var id = $(this).data("id");
+                OrderApp.removeItemFromCart(id);
+                OrderApp.displayCart();
+            })
+        });

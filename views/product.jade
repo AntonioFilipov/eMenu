@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    div.row#product
+        div.col-xs-6.col-md-5
+            img(src="img/hotMeal.jpg", alt="...")
+
+        div.col-xs-6.col-md-7
+            h1.orderText Равиоли по италиански с телешко
+            p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis modi nesciunt quibusdam repellendus ipsum vel, quasi, consequuntur natus in dolorum optio maxime debitis qui, similique eaque quos cum id delectus?
+            p Цена
+                span.orderPrice 18лв
+                a.btn.btn-success.btn-add(href="#", role="button") Добави
+
+block scripts
+    script.
+        $(document).ready(function(){
+            //init stuff
+            $(".btn-add").click(function () {
+                var name = $(".orderText").text();
+                var price = $(".orderPrice").text();
+                if (name != "" && price !="") {
+                    OrderApp.addItemToCart(name, price);
+                }
+            });
+            
+        });
