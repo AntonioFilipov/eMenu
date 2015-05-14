@@ -28,4 +28,8 @@ block scripts
                 OrderApp.removeItemFromCart(id);
                 OrderApp.displayCart();
             })
+
+            $("#cartItems").on("click", ".send", function(){
+                OrderApp.sendOrder();
+            })
         });
