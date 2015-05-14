@@ -6,7 +6,7 @@ var OrderApp = (function () {
 
     //parse jade to html 
     //container-where exactly to add parsed html
-    //fileName-views/cart-items.jade
+    //fileName-views/cart-products.jade
     //data-variables in dictionary {cart: cart}
     function displayWithJade(container, fileName, data){
         return Q($.get(fileName)).then(function(jadeString){
@@ -26,6 +26,13 @@ var OrderApp = (function () {
         displayWithJade(container, "views/cart-items.jade",{
             cart: cart
         });
+    }
+
+    var sendOrder = function(){
+        var cart = JSON.parse(sessionStorage.getItem("cart"));
+        var order = new Resource("http://localhost:3000/api/orders");
+        order.create(cart);
+    }
 
         // $.ajax({
         //     "method": "get",
@@ -47,15 +54,18 @@ var OrderApp = (function () {
         //         }
         //     }
         // })
-    }
 
-    var removeItemFromCart = function(id) {
+    var removeItemFromCart = function(inerId) {
         var cart = JSON.parse(sessionStorage.getItem("cart"));
-
-        for (var i=0;i<cart.items.length;i++){
-            if (cart.items[i].id === id){
-                cart.items.splice(i,1);
+        for (var i=0;i<cart.products.length;i++){
+            if (cart.products[i].id === inerId){
+                cart.products.splice(i,1);
+                break;
             }
+        }
+
+        for (var i=0;i<cart.products.length;i++){
+            cart.products[i].id = i+1;
         }
 
         sessionStorage.setItem("cart", JSON.stringify(cart));
@@ -85,15 +95,15 @@ var OrderApp = (function () {
 
     var addItemToCart = function(name, price) {
         var cart = JSON.parse(sessionStorage.getItem("cart"));
-        id++;
+        
         if (cart === null) {
-            id=0;
+            
             cart = {
-                items: []
+                products: []
             }
         };
-
-        cart.items.push({
+        id = cart.products.length+1;
+        cart.products.push({
             id: id,
             name: name,
             price: price
@@ -120,6 +130,7 @@ var OrderApp = (function () {
         displayCart: displayCart,
         removeItemFromCart: removeItemFromCart,
         update: update,
-        addItemToCart: addItemToCart
+        addItemToCart: addItemToCart,
+        sendOrder: sendOrder
     };
 })();
