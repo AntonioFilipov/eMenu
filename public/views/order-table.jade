@@ -1,0 +1,27 @@
+
+each order in orders
+    tr
+        td= order.client
+        each product in order.products
+            tr.redRow
+                td
+                td= product.name
+                td
+                    a.btn.btn-success.action-delete
+                        span.glyphicon.glyphicon-ok
+                
+
+//- block scripts
+//-     script.
+//-         $(document).ready(function(){
+//-             var orderRes = new Resource("http://localhost:3000/api/orders");
+//-             orderRes.query().then(function(res){
+//-                 var container = $("#tableOfOrders tbody");
+//-                 container.empty();
+//-                 var clients = res.list;
+
+//-                 return displayWithJade(container, "views/order-table.jade",{
+//-                     clients: clients
+//-                 }); 
+//-             })
+//-         })
