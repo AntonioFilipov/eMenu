@@ -1,0 +1,44 @@
+html(lang="en")
+head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width", initial-scale="1")
+    title GYM
+    link(href="lib/bootstrap/dist/css/bootstrap.min.css", rel="stylesheet", media="screen")
+    link(rel="stylesheet", type="text/css", href="lib/bootstrap/dist/css/custom.css")
+body.container-fluid
+    div.row
+        div.table-responsive
+            table.table.table-hover#tableOfOrders
+                thead
+                    tr
+                        th.client Маса
+                        th.product Продукт
+                        th.price Сервирано
+                tfoot
+                    tr
+                        td.button.btn.btn-success.view Покажи
+                        td 
+                        td Общо
+                tbody
+
+script(src="lib/jquery/dist/jquery.js")
+script(src="lib/jade/jade.js")
+script(src="lib/bootstrap/dist/js/bootstrap.js")
+script(src="lib/q/q.js")
+script(src="js/app.js")
+script(src="js/tools/resource.js")
+script(src="js/tools/helpers.js")
+block scripts
+    script.
+        $(document).ready(function(){
+            //init stuff
+            OrderApp.displayOrderTable();
+            $("#tableOfOrders").on("click", ".action-delete", function(){
+                $(this).closest("tr").css('background', 'rgba(0, 204, 0, 0.8)')
+                $(this).parent().addClass("button.btn.btn-danger.view")
+                
+            })
+
+        });
+
+
