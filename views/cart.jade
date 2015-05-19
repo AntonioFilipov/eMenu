@@ -10,7 +10,10 @@ block content
                     th.menu
             tfoot
                 tr
-                    td Общо
+                    td Избери маса:
+                        form
+                            input.seat(type="number" id="income" name="income" value="10")
+
                     td 36.00лв.
                     td
                         button.btn.btn-success.send Поръчай
@@ -30,6 +33,8 @@ block scripts
             })
 
             $("#cartItems").on("click", ".send", function(){
-                OrderApp.sendOrder();
+                var seat = $(".seat").val();
+                console.log(seat);
+                OrderApp.sendOrder(seat);
             })
         });

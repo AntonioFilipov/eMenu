@@ -4,34 +4,39 @@ var OrderApp = (function () {
     // var ordersResult;
     var id = 0;
 
-    //parse jade to html 
-    //container-where exactly to add parsed html
-    //fileName-views/cart-products.jade
-    //data-variables in dictionary {cart: cart}
-    function displayWithJade(container, fileName, data){
-        return Q($.get(fileName)).then(function(jadeString){
-            var renderedHtml = jade.render(jadeString, data);
-            container.html(renderedHtml);
-        })
-    }
-
     //set where to add content and get data from local storage
     var displayCart = function() {
         var container = $("#cartItems tbody");
         container.empty();
-
         //Get cart data from local storage
         var cart = JSON.parse(sessionStorage.getItem("cart"));
         //Display cart items
-        displayWithJade(container, "views/cart-items.jade",{
+        helpers.displayWithJade(container, "views/cart-items.jade",{
             cart: cart
         });
     }
 
-    var sendOrder = function(){
+
+    var displayOrderTable = function(){
+        var orderRes = new Resource("http://localhost:3000/api/orders");
+        orderRes.query().then(function(res){
+            var container = $("#tableOfOrders tbody");
+            container.empty();
+            var orders = res;
+            console.log(orders);
+
+            helpers.displayWithJade(container, "views/order-table.jade",{
+                orders: orders
+            });
+        });
+    }
+
+
+    var sendOrder = function(seat){
         var cart = JSON.parse(sessionStorage.getItem("cart"));
+        console.log(cart);
         var order = new Resource("http://localhost:3000/api/orders");
-        order.create(cart);
+        order.create(cart, seat);
     }
 
         // $.ajax({
@@ -69,14 +74,6 @@ var OrderApp = (function () {
         }
 
         sessionStorage.setItem("cart", JSON.stringify(cart));
-        
-        // $.ajax({
-        //     "method": "delete",
-        //     "url": "http://localhost:3000/api/orders/" + id,
-        //     "dataType": "json"
-        // }).done(function (result) {
-        //     displayResults();
-        // })
     }
 
     var update = function(id, name, email) {
@@ -95,7 +92,6 @@ var OrderApp = (function () {
 
     var addItemToCart = function(name, price) {
         var cart = JSON.parse(sessionStorage.getItem("cart"));
-        
         if (cart === null) {
             
             cart = {
@@ -111,19 +107,6 @@ var OrderApp = (function () {
 
         sessionStorage.setItem("cart", JSON.stringify(cart));
 
-        // $.ajax({
-        //     "method": "post",
-        //     "url": "http://localhost:3000/api/orders",
-        //     "data": {
-        //         "id": id,//ordersResult.length,
-        //         "name": name,
-        //         "price": price
-        //     },
-        //     "dataType": "json"
-        // }).done(function (result) {
-        //     $(".orderText").text("");
-        //     $(".orderPrice").text("");
-        // })
 
     }
     return {
@@ -131,6 +114,7 @@ var OrderApp = (function () {
         removeItemFromCart: removeItemFromCart,
         update: update,
         addItemToCart: addItemToCart,
-        sendOrder: sendOrder
+        sendOrder: sendOrder,
+        displayOrderTable: displayOrderTable
     };
 })();

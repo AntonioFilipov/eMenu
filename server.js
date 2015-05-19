@@ -39,6 +39,10 @@ function getIndexById(collection, id){
 app.get('/', function (req, res) {
   res.render('index');
 })
+//bar route
+app.get('/bar/', function (req, res) {
+  res.render('bar/tableOfOrders');
+})
 
 app.get('/api/orders', function (req, res) {
     res.jsonp(orders);
@@ -53,10 +57,9 @@ app.post('/api/orders', function (req, res) {
 
 // INDEX BY ID WEEK7
     order = {
-        client: 1,
+        client: client,
         products: products
     };
-
     orders.push(order);
     res.jsonp({
         msg: 'order created',
