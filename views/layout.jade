@@ -48,11 +48,16 @@ body.container-fluid
                         a(href="appetizers") Drinks
         div.col-xs-9.content
             block content
+    //- dependencies
     script(src="lib/jquery/dist/jquery.js")
+    script(src="lib/q/q.js")
     script(src="lib/jade/jade.js")
     script(src="lib/bootstrap/js/carousel.js")
     script(src="lib/bootstrap/dist/js/bootstrap.js")
-    script(src="lib/q/q.js")
+    //- tools
+    script(src="js/tools/resource.js")
+    script(src="js/tools/helpers.js")
+    //-app
     script(src="js/app.js")
-    script(src="js/resource.js")
+
     block scripts
