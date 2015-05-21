@@ -7,26 +7,27 @@ head
     link(rel="stylesheet", type="text/css", href="lib/bootstrap/dist/css/custom.css")
 body.container-fluid
     header.row
-        nav.navbar.navbar-default.col-xs-12
-            div.row
-                div.col-sm-5.col-xs-12.col-md-4
-                    img.navbar-brand#imageHeader.pull-left(src="img/HackMan.png", alt="...")
-                    a.navbar-brand.pull-left(href="index") Hack Bulgaria Cafe
-                div.col-sm-7.col-xs-12.col-md-8
-                    div.navbar-header.navbar-right
-                        ul.nav.navbar-nav
-                            li
-                                div.row
-                                    div.col-xs-1.col-sm-2
-                                        span#redButton 
-                                    div.col-xs-11.col-sm-10#redButtonDiv
-                                        a(href="#").pull-left#redButtonA Извикай сервитьор
-                            li
-                                a(href="index") Home
-                            li
-                                a(href="cart") My order
-                            li
-                                a(href="about") About us
+        nav.navbar.navbar-default(role="navigation")
+            div.navbar-header
+                button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                div#logo
+                    a.navbar-brand(href="index") Hack Bulgaria Cafe
+                        img.navbar-brand#imageHeader(src="img/HackMan.png", alt="...")
+                div#redButtonContainer
+                    a(href="#") Извикай сервитьор
+                        span
+            div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+                ul.nav.navbar-nav
+                    li
+                        a(href="index") Home
+                    li
+                        a(href="cart") My order
+                    li
+                        a(href="about") About us
 
     div.row#rowContainer
         div.col-xs-3.text-center
